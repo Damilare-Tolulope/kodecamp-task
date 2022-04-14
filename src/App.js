@@ -12,6 +12,7 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(!firstName || !lastName || !email || !gender || !address || !bio) return alert("Please fill the form completely")
 
     const values = () => {
       return(
@@ -28,17 +29,13 @@ const App = () => {
       
     
     setDisplayValues(values);
-    
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setAddress('');
-    setBio('');
+    const form = document.querySelector('form')
+    form.reset();
   }
 
   return (
     <form onSubmit={handleSubmit} >
-      <p>Contact from</p>
+      <p className="text">Contact from</p>
       {displayValues}
       <div>
         <label>First name</label>
