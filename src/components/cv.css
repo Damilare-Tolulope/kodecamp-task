@@ -1,0 +1,102 @@
+header{
+    padding: 30px 80px;
+    background-color: #151844;
+    color: #fff;
+}
+header h1{
+    margin: 0;
+}
+header h4{
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 0;
+}
+header span{
+    margin: 0;
+}
+header span:nth-child(1){
+    margin-right: 300px;
+}
+.body{
+    padding: 30px 80px;
+}
+.bio{
+    margin: 20px 0;
+}
+
+.education h2,
+.experience h2{
+margin-bottom: 20px;
+}
+.exp-1, .edu-1{
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+}
+.date{
+    width: 200px;
+}
+.role h2{
+    margin: 0;
+    font-size: 20px;
+}
+.role p{
+    margin: 0;
+    font-size: 14px;
+}
+.role ul{
+    list-style-type: none;
+}
+.role ul li{
+    margin-left: -20px;
+    font-size: 14px;
+}
+
+
+.language, .skills{
+    display: flex;
+    align-items: center;
+}
+.language h2, .skills h2{
+    width: 150px;
+}
+.skills ul,
+.language ul{
+    font-size: 14px;
+    list-style-type: none;
+    margin-top: 50px;
+}
+.skills ul{
+    margin-top: 100px;
+}
+.skills ul li,
+.language ul li{
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width: 380px){
+    header, .body{
+        padding: 30px;
+    }
+    header h1{
+        font-size: 28px;
+    }
+    header span{
+        display: block;
+    }
+    header span:nth-child(1){
+    margin-right: 0px;
+}
+.exp-1, .edu-1, 
+.language, .skills{
+    flex-direction: column;
+    justify-content: left;
+}
+.language, .skills{
+    margin-left: -150px;
+}
+.skills ul,
+.language ul{
+    margin-top: 10px;
+}
+}
