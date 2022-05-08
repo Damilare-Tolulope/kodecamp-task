@@ -1,27 +1,23 @@
-import React, { useState, useEffect, Suspense } from 'react'
-import Users from './components/Users';
+import "./App.css"
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/stage12/Home";
+import About from "./components/stage12/about/About";
+import Contact from "./components/stage12//contact/Contact";
+import Header from "./components/stage12/ui/Header";
+import Footer from "./components/stage12/ui/Footer";
 
 const App = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setUsers(data)
-      })
-      .catch(error => console.log(error))
-  }, [])
-
   return (
-      <Suspense fallback={<h3>Loading...</h3>}>
-        <div>
-          { users.map( user => <Users key={user.id} user={user} />) }
-        </div>
-      </Suspense>
-      
-  )
-}
+    <>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+    </>
+  );
+};
 
-export default App
+export default App;
