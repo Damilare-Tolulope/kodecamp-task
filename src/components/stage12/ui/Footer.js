@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="footer-links">
           <h2>Links</h2>
           <div>
-          <Link onClick={() => backtotop('nav')} to="/"> Home </Link>
+          <Link onClick={() => backtotop('nav')} to="/kodecamp-task"> Home </Link>
           <Link onClick={() => backtotop('nav')} to="/about"> About Us </Link>
           <Link onClick={() => backtotop('nav')} to="/contact"> Contact Us </Link>
           </div>
