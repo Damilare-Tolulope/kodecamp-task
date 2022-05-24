@@ -1,23 +1,41 @@
-import "./App.css"
-import { Routes, Route } from "react-router-dom";
-import Home from "./components/stage12/Home";
-import About from "./components/stage12/about/About";
-import Contact from "./components/stage12//contact/Contact";
-import Header from "./components/stage12/ui/Header";
-import Footer from "./components/stage12/ui/Footer";
+import React from 'react';
+import './App.css';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import NavBar from './components/stage13/navbar';
+import Products from './components/stage13/products';
+import Home from './components/stage13/home';
+import ProductDetails from './components/stage13/productDetails';
+import NotFound from './components/stage13/notFound';
+// import Posts from './components/stage13/posts';
+import Dashboard from './components/stage13/admin/dashboard';
+import Users from './components/stage13/admin/users'
+import Posts from './components/stage13/admin/posts'
+import Login from './components/stage13/login'
 
 const App = () => {
-  return (
-    <>
-        <Header />
-        <Routes>
-          <Route exact path="/kodecamp-task" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-    </>
-  );
-};
+	return (
+		<div>
+			<NavBar />
+			<div className='content'>
+				<Routes>
+					<Route path="/" element={<Home/>}/>
+					<Route path="/products" element={<Products isCustomLayout={true} />} />
+					<Route path='/login' element={<Login/>}/>
+					{/* <Route path='/posts/:year/:month' element={<Posts />} /> */}
 
+
+					<Route path="/admin" element={<Dashboard />}>
+						<Route path='users' element={<Users />} />
+						<Route path='posts' element={<Posts />} />
+					</Route>
+
+					
+					<Route path='/products/:id' element={<ProductDetails />} />
+					<Route path="*" element={<Navigate to={'/'} replace/> }/>
+					<Route path='*' element={<NotFound/>}/>
+				</Routes>
+			</div>
+		</div>
+	);
+}
 export default App;
