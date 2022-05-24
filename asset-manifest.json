@@ -1,25 +1,15 @@
 {
   "files": {
-    "main.css": "/kodecamp-task/static/css/main.3bed63e3.css",
-    "main.js": "/kodecamp-task/static/js/main.aa5943e5.js",
+    "main.css": "/kodecamp-task/static/css/main.8d203194.css",
+    "main.js": "/kodecamp-task/static/js/main.b12f1485.js",
     "static/js/787.0b18623f.chunk.js": "/kodecamp-task/static/js/787.0b18623f.chunk.js",
-    "static/media/pp4.jpg": "/kodecamp-task/static/media/pp4.47a03190b953a768bcd6.jpg",
-    "static/media/pp3.jpg": "/kodecamp-task/static/media/pp3.d3651a313560fea68c29.jpg",
-    "static/media/logo.svg": "/kodecamp-task/static/media/logo.3bc9729f6b44a988ff3279ba3c215be8.svg",
-    "static/media/flower.svg": "/kodecamp-task/static/media/flower.99a0a37651e45f1fa0a71c8a7154374c.svg",
-    "static/media/instagram.svg": "/kodecamp-task/static/media/instagram.8dbf1c492fb2e8f06d0c9b7f1ccf5cf0.svg",
-    "static/media/twitter.svg": "/kodecamp-task/static/media/twitter.57b834a46c30cb6baf32142cf0f2db95.svg",
-    "static/media/contact.svg": "/kodecamp-task/static/media/contact.ba583e2175faf414b412c56b5934666d.svg",
-    "static/media/backToTop.svg": "/kodecamp-task/static/media/backToTop.f863dc993e2802b55e54761ab0dac562.svg",
-    "static/media/cutlery.svg": "/kodecamp-task/static/media/cutlery.5971df9d0a2f3085c2916b79101d85b0.svg",
     "index.html": "/kodecamp-task/index.html",
-    "static/media/facebook.svg": "/kodecamp-task/static/media/facebook.c5b1ab2b564934e0a33596b96e0fbc26.svg",
-    "main.3bed63e3.css.map": "/kodecamp-task/static/css/main.3bed63e3.css.map",
-    "main.aa5943e5.js.map": "/kodecamp-task/static/js/main.aa5943e5.js.map",
+    "main.8d203194.css.map": "/kodecamp-task/static/css/main.8d203194.css.map",
+    "main.b12f1485.js.map": "/kodecamp-task/static/js/main.b12f1485.js.map",
     "787.0b18623f.chunk.js.map": "/kodecamp-task/static/js/787.0b18623f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bed63e3.css",
-    "static/js/main.aa5943e5.js"
+    "static/css/main.8d203194.css",
+    "static/js/main.b12f1485.js"
   ]
 }
