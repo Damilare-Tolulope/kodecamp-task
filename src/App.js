@@ -21,13 +21,6 @@ const App = () => {
 					<Route path="/" element={<Home/>}/>
 					<Route path="/products" element={<Products isCustomLayout={true} />} />
 					<Route path='/login' element={<Login/>}/>
-					{/* <Route path='/posts/:year/:month' element={<Posts />} /> */}
-
-
-					<Route path="/admin" element={<Dashboard />}>
-						<Route path='users' element={<Users />} />
-						<Route path='posts' element={<Posts />} />
-					</Route>
 
 					
 					<Route path='/products/:id' element={<ProductDetails />} />

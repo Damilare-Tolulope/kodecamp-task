@@ -1,4 +1,5 @@
 import React from "react";
+import person from './assets/person.svg'
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
         <p>Compeletely learn and become a master at your own pace with readily available and adeqaute resources provided for you. Get ready to experience a smooth road learning processes.</p>
         <button>Get Started</button>
       </div>
-      <img src="" alt="" />
+      <img src={person} alt={person} />
     </div>
   )
 };

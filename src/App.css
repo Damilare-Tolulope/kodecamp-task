@@ -95,33 +95,101 @@
   transition: all 0.3s linear;
   background: linear-gradient(90deg, #5F72FF 0%, #73D6F1 100%);
 }
-
-.form{
+.home img{
+  height: 350px;
+}
+.login{
+  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
+}
+.login img, .login_form{
+  flex: 1;
+}
+.login img{
+  height: 300px;
+}
+.login_form{
+  padding: 0 50px;
+}
+.login_form h3{
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 300px;
-  height: 400px;
-  box-shadow: 2px 2px 12px #333;
 }
-form button {
-  background-color: #3d51e5;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
+.form_input{
+  width: 300px;
+  border-bottom: 1px solid #ee8f4e;
+  padding: 10px 10px 0;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.form_input i{
+  font-size: 20px;
+  margin-right: 10px;
+}
+.form_input .togglePassword{
+  margin-right: 0;
+  margin-left: 10px;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
+  transition: all 0.3s linear;
 }
-form button:hover {
-  background-color: #2e40ca;
+.form_input input{
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline:none;
+  caret-color: #ee8f4e;
+}
+.remember{
+  margin:20px 10px;
+  font-size: 14px;
+}
+.remember input{
+  margin-right: 10px;
+  accent-color: #ee8f4e;
+  cursor: pointer;
+}
+input[type="submit"]{
+  width: 300px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background-color: #ee8f4e;
+  margin: 20px 0;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+input[type="submit"]:hover{
+  box-shadow: 3px 3px 10px #ee8f4e;
+  transition: all 0.3s linear;
+}
+form > p{
+  font-size: 14px;
+  color: blue;
+  text-align: right;
+}
+.link_to_signup p{
+  font-size: 14px;
+  margin-top: 20px;
+  color: black;
+  text-align: center;
+}
+.link_to_signup p span{
+  color: blue;
+  cursor:pointer;
+} 
+.signup_form{
+  padding-left: 200px;
 }
 
 .products{
@@ -150,4 +218,50 @@ a{
   border-radius: 50%;
   border:none;
   margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+.sidebar {
+  width: 250px;
+  padding: 20px 15px;
+  text-align: center;
+  height: 89vh;
+  position: relative;
+  border-right: 5px solid #ee8f4e;
+  background: #222;
+}
+.sidebar {
+  padding-top: 100px;
+}
+.sidebar li{
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 12px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.sidebar li:hover{
+  border: 2px solid #ee8f4e;
+  color: #ee8f4e;
+}
+
+.dashboard{
+  display: flex;
 }

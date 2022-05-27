@@ -3,19 +3,26 @@
 import React from 'react';
 import Sidebar from './sidebar';
 import { Outlet } from 'react-router-dom';
-// import { Routes, Route } from 'react-router-dom';
-// import Users from './users';
-// import Posts from './posts';
+import { Routes, Route } from 'react-router-dom';
+import Posts from './posts';
 import Button from '../button';
+import Users from './users';
 
 const Dashboard = () => {
 	return (
 		<div>
-			<h1>Admin Dashboard</h1>
+			<div className='dashboard'>
+				<Sidebar />
 
-			<Sidebar />
-
-			<Outlet />
+				<div>
+					<Routes>
+					<Route path="/admin" element={<Dashboard />}>
+						<Route path='users' element={<Users />} />
+						<Route path='posts' element={<Posts />} />
+					</Route>
+					</Routes>
+				</div>
+			</div>
 		</div>
 	);
 };
