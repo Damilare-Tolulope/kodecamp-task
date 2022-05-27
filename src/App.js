@@ -7,9 +7,6 @@ import Home from './components/stage13/home';
 import ProductDetails from './components/stage13/productDetails';
 import NotFound from './components/stage13/notFound';
 // import Posts from './components/stage13/posts';
-import Dashboard from './components/stage13/admin/dashboard';
-import Users from './components/stage13/admin/users'
-import Posts from './components/stage13/admin/posts'
 import Login from './components/stage13/login'
 
 const App = () => {
