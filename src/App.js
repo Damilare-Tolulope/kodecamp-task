@@ -1,31 +1,60 @@
-import React from 'react';
-import './App.css';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import NavBar from './components/stage13/navbar';
-import Products from './components/stage13/products';
-import Home from './components/stage13/home';
-import ProductDetails from './components/stage13/productDetails';
-import NotFound from './components/stage13/notFound';
-// import Posts from './components/stage13/posts';
-import Login from './components/stage13/login'
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./components/stage13B/components/contexts/AuthContext";
+import Home from "./components/stage13B/components/landing/Home";
+import Login from "./components/stage13B/components/Login/Login";
+import PrivateRoute from "./components/stage13B/components/PrivateRoute";
+import Signup from "./components/stage13B/components/Signup/Signup";
+import Courses from "./components/stage13B/components/user/Courses";
+import Dashboard from "./components/stage13B/components/user/Dashboard";
+import EachCourse from "./components/stage13B/components/user/EachCourse";
+import Profile from "./components/stage13B/components/user/Profile";
 
 const App = () => {
-	return (
-		<div>
-			<NavBar />
-			<div className='content'>
-				<Routes>
-					<Route path="/" element={<Home/>}/>
-					<Route path="/products" element={<Products isCustomLayout={true} />} />
-					<Route path='/login' element={<Login/>}/>
+  return (
+    <HashRouter>
+      <AuthProvider>
+        <div className="App">
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/courses"
+              element={
+                <PrivateRoute>
+                  <Courses />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/eachcourse"
+              element={
+                <PrivateRoute>
+                  <EachCourse />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/landing" element={<Home />} />
+          </Routes>
+        </div>
+      </AuthProvider>
+    </HashRouter>
+  );
+};
 
-					
-					<Route path='/products/:id' element={<ProductDetails />} />
-					<Route path="*" element={<Navigate to={'/'} replace/> }/>
-					<Route path='*' element={<NotFound/>}/>
-				</Routes>
-			</div>
-		</div>
-	);
-}
 export default App;

@@ -1,65 +1,69 @@
-import React, { useState } from 'react';
-import person from './assets/person.svg'
-import { signInWithPopup, getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, provider } from './config/firebase';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import loginImg from './assets/login.svg'
+import { useAuth } from './contexts/AuthContext'
 
 
-function Login() {
-	const [email, setEmail] = useState('')
-	const [password, setPassword] = useState('')
+const Login = () => {
+    const login = useAuth()
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    // const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
-	function SignUp(e) {
-		e.preventDefault();
+    const handleFormData = async (e) => {
+        e.preventDefault();
 
-		const auth = getAuth();
+        // Prevent submitting empty form
+        if(!email || !password) return alert("Please input your credentials")
 
-	createUserWithEmailAndPassword(auth, email, password)
-	  .then((userCredential) => {
-		// Signed in 
-		const user = userCredential.user;
-			console.log(user);
-			navigate('/admin');
-		})
-	  .catch((error) => {
-		console.log(error)
-	  });
-	}
-	const navigate = useNavigate();
-	const SignInWithGoogleFunc = (e) => {
-		e.preventDefault();
-		signInWithPopup(auth, provider)
-			.then((res) => {
-				console.log(res);
-				navigate('/admin');
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	};
+        try {
+            setError('')
+            // setLoading(true)
+            await login(email, password)
+            navigate('/dashboard')
+          } catch (error) {
+            setError(error.message)
+          }
+      
+        //   setLoading(false)
+        
+        setEmail("")
+        setPassword("")
+        setRememberMe(false)
+        setShowPassword(false)
+    }
 
-	return (
-		<div className='login'>
-        <div className='login_form signup_form'>
-            <h3>Sign Up</h3>
-            <form>
+
+  return (
+    <div id="login" className='login'>
+        <img src={loginImg} alt="login" />
+        <div className='login_form'>
+            <h3>Login</h3>
+            <form onSubmit={handleFormData}>
                 <div className='form_input'>
-                    <input value={email} onChange={(e)=> setEmail(e.target.value)} type="email" placeholder='Email' />
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="text" placeholder='Email' />
                 </div>
                 <div className='form_input'>
-                    <input value={password} onChange={(e)=> setPassword(e.target.value)} type="password" placeholder='Password' />
+                    <input id='password' value={password} onChange={(e) => setPassword(e.target.value)} type={ showPassword ? "text" : "password"} placeholder='Password' />
+                    <i className='togglePassword' onClick={() => setShowPassword(!showPassword)}> { showPassword ? <small>Hide</small> : <small>Show</small> }</i>
                 </div>
-                <div className='form_input'>
-                    <input type="password" placeholder='Confirm password' />
+                <p id="error" style={{ lineHeight: '20px', color: 'red', textAlign: 'left', fontSize: "12px", marginTop: '5px'}}>{ error} </p>
+                <div className='remember'>
+                    <input checked={rememberMe} onChange={(e) => setRememberMe(!rememberMe)} type="checkbox"/> Remember me
                 </div>
-                    <input onClick={(e) => SignUp(e)} type="submit" value="Sign Up" />
+                    <input type="submit" value="Login" />
+                    <p>Forgot Password?</p>
+                <div className='link_to_signup'>
+                    <p>Don't have an account? <span><Link to="/signup"> Sign Up</Link></span></p>
+                </div>
             </form>
-			<small style={{display: 'block', marginLeft:'150px'}}>OR</small>
-				<input type='submit' onClick={(e) => SignInWithGoogleFunc(e)} value="Sign In with Google" />
         </div>
-        <img src={person} alt="signup" />
     </div>
-	);
+  )
 }
 
-export default Login;
+export default Login

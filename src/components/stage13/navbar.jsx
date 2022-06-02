@@ -29,7 +29,7 @@ const NavBar = () => {
 					<Link to='/posts/2018/06'>Posts</Link>
 				</li>
 				<li>
-					<Link id="login" to='/login'>Login</Link>
+					<Link id="login" to='/signup'>Login</Link>
 				</li>
 			</div>
 		</ul>
